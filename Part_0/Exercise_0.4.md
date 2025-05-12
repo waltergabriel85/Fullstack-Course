@@ -4,9 +4,22 @@ sequenceDiagram
     participant browser
     participant server
 
+    Note right of browser: The browser creates a new note form data with the information typed when the save button is pressed
+
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+    activate server
+    server: Saves the received data at an array called "notes"
+    server-->>browser: Requests a new HTTP GET to the browser
+    deactivate server
+
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
     activate server
     server-->>browser: HTML document
+    deactivate server
+
+    browser->>server: GET chrome-extension://bgpmiljelfnilfcfmoppijdkmccbccel/isolated-first.jst
+    activate server
+    server-->>browser: Receives JST document
     deactivate server
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
