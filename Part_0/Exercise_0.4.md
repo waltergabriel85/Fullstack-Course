@@ -8,9 +8,10 @@ sequenceDiagram
 
     browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
     activate server
-    server: Saves the received data at an array called "notes"
     server-->>browser: Requests a new HTTP GET to the browser
     deactivate server
+
+    Note right of server: Saves the received data at an array called "notes"
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
     activate server
