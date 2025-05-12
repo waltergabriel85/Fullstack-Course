@@ -10,5 +10,5 @@ sequenceDiagram
     activate server
     deactivate server
 
-    Note right of server: Saves the received data at an array called "notes" and responds with the status code 201 created
+    Note right of browser: Saves the received data at an array called "notes" and responds with the status code 201 created
 ```
